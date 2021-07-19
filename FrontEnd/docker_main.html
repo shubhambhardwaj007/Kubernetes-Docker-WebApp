@@ -11,14 +11,33 @@
 <body>
   <div class="form-popup" id="launch_new_container">
     <form class="form-container">
-      <h1>New Container Details:</h1>
-  
+      <h1  style="color: black;">New Container Details:</h1>  
       <label><b>New Container Name</b></label>
-      <input type="text" placeholder="Enter Container Name..." name="container_name" required>
-  
+      <input type="text" placeholder="Enter Container Name..." name="new_container_name" required>  
       <label><b>Container Image</b></label>
-      <input type="text" placeholder="Enter Container Image Name.." name="container_image" required>
-  
+      <input type="text" placeholder="Enter Container Image Name.." name="container_image" required>  
+      <button type="submit" class="btn">Proceed</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+  <div class="form-popup" id="stop_running_container">
+    <form class="form-container">
+      <h1  style="color: black;">Existing Container Details:</h1>  
+      <label><b>Running Container Name</b></label>
+      <input type="text" placeholder="Enter Running Container Name..." name="running_container_name" required>    
+      <button type="submit" class="btn">Proceed</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
+  <div class="form-popup" id="run_command">
+    <form class="form-container">
+      <h1  style="color: black;">Container Details:</h1>  
+      <label><b>Container Name</b></label>
+      <input type="text" placeholder="Enter Container Name..." name="temp_container_name" required>  
+      <label><b>Container Image</b></label>
+      <input type="text" placeholder="Enter Container Image Name.." name="temp_container_image" required>
+      <label><b>Command</b></label>
+      <input type="text" placeholder="Enter Command.." name="temp_container_command" required>
       <button type="submit" class="btn">Proceed</button>
       <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
     </form>
@@ -108,7 +127,7 @@
              <p>It would remove all container Images.</p>
            </article>
         </li>
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="">
            <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
             <h6 class="heading">Run Command on Container</h6>
             <p>It would run command in Isolated container Environment.</p>
