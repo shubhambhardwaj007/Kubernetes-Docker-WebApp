@@ -5,8 +5,24 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="pop_dialog_box.css" />
+<script src="form.js"></script>
 </head>
-<body id="top"></body>
+<body>
+  <div class="form-popup" id="launch_new_container">
+    <form class="form-container">
+      <h1>New Container Details:</h1>
+  
+      <label><b>New Container Name</b></label>
+      <input type="text" placeholder="Enter Container Name..." name="container_name" required>
+  
+      <label><b>Container Image</b></label>
+      <input type="text" placeholder="Enter Container Image Name.." name="container_image" required>
+  
+      <button type="submit" class="btn">Proceed</button>
+      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+    </form>
+  </div>
 <div class="wrapper row1">
   <header id="header" class="hoc clear">
     <div id="logo" class="fl_left"> 
@@ -34,13 +50,13 @@
   <main class="hoc container clear"> 
     <section id="introblocks">
       <ul class="nospace group btmspace-80 elements elements-four">
-        <li class="one_quarter" onclick="alert('clicked')">
+        <li class="one_quarter">
           <article><a href="#"><i class="fas fa-table"></i></a>
             <h6 class="heading">List Docker Images</h6>
             <p>It would list all docker images that are present in your system.</p>
           </article>
         </li>
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="Launch_Container();">
           <article><a href="#"><i class="fas fa-sliders-h"></i></a>
             <h6 class="heading">Launch Docker container</h6>
             <p>It would launch new container for you using specified Docker Image.</p>
@@ -100,4 +116,5 @@
         </li>
       </ul>
       </section>
+    </body>
     
