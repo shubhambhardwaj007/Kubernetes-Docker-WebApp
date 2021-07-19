@@ -16,7 +16,7 @@
       <input type="text" placeholder="Enter Container Name..." name="new_container_name" required>  
       <label><b>Container Image</b></label>
       <input type="text" placeholder="Enter Container Image Name.." name="container_image" required>  
-      <button type="submit" class="btn">Proceed</button>
+      <button type="submit" class="btn" onclick="Launch_New_Cont();">Proceed</button>
       <button type="button" class="btn cancel" onclick="Launch_Container_Close_Form()">Close</button>
     </form>
   </div>
@@ -25,7 +25,7 @@
       <h1  style="color: black;">Existing Container Details:</h1>  
       <label><b>Running Container Name</b></label>
       <input type="text" placeholder="Enter Running Container Name..." name="running_container_name" required>    
-      <button type="submit" class="btn">Proceed</button>
+      <button type="submit" class="btn" onclick="Stop_Running_Cont()">Proceed</button>
       <button type="button" class="btn cancel" onclick="Stop_Container_Close_Form()">Close</button>
     </form>
   </div>
@@ -34,7 +34,7 @@
       <h1  style="color: black;">Existing Container Details:</h1>  
       <label><b>Running/Stopped Container Name</b></label>
       <input type="text" placeholder="Enter Running/Stopped Container Name..." name="remove_container_name" required>    
-      <button type="submit" class="btn">Proceed</button>
+      <button type="submit" class="btn" onclick="Remove_Cont();">Proceed</button>
       <button type="button" class="btn cancel" onclick="Remove_Container_Close_Form()">Close</button>
     </form>
   </div>
@@ -43,7 +43,7 @@
       <h1  style="color: black;">Container Image Details:</h1>  
       <label><b>Container Image Name</b></label>
       <input type="text" placeholder="Enter Container Image Name..." name="remove_container_image" required>    
-      <button type="submit" class="btn">Proceed</button>
+      <button type="submit" class="btn" onclick="Remove_Img();">Proceed</button>
       <button type="button" class="btn cancel" onclick="Remove_Image_Close_Form()">Close</button>
     </form>
   </div>
@@ -57,7 +57,7 @@
       <input type="text" placeholder="Enter Container Image Name.." name="temp_container_image" required>
       <label><b>Command</b></label>
       <input type="text" placeholder="Enter Command.." name="temp_container_command" required>
-      <button type="submit" class="btn">Proceed</button>
+      <button type="submit" class="btn" onclick="Exec_Command();">Proceed</button>
       <button type="button" class="btn cancel" onclick="Temp_Container_Close_Form()">Close</button>
     </form>
   </div>
@@ -81,7 +81,7 @@
 <div class="bgded overlay" style="background-image:url('images/demo/backgrounds/background.jpg');">
   <div id="pageintro" class="hoc clear"> 
     <article>
-      <h3 style="font-size: 28px;"class="heading">Docker Command will appear here...</h3>
+      <h3 style="font-size: 28px;"class="heading" id="onscreen_output" >Docker Command Output will appear here...</h3>
     </article>
   </div>
 </div>
@@ -89,7 +89,7 @@
   <main class="hoc container clear"> 
     <section id="introblocks">
       <ul class="nospace group btmspace-80 elements elements-four">
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="Cont_Img_List();">
           <article><a href="#"><i class="fas fa-table"></i></a>
             <h6 class="heading">List Docker Images</h6>
             <p>It would list all docker images that are present in your system.</p>
@@ -101,13 +101,13 @@
             <p>It would launch new container for you using specified Docker Image.</p>
           </article>
         </li>
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="Running_Cont_List();">
           <article><a href="#"><i class="fas fa-heartbeat"></i></a>
             <h6 class="heading">List Running Containers</h6>
             <p>It would list all the containers running currently in your system.</p>
           </article>
         </li>
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="Stopped_Cont_List();">
           <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
             <h6 class="heading">List Stopped Containers</h6>
             <p>It would list all container that are in stopped state.</p>
@@ -133,7 +133,7 @@
              <p>It would remove specified Container Image.</p>
            </article>
         </li>
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="Remove_All_Cont();">
            <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
              <h6 class="heading">Clean all Docker Containers</h6>
              <p>It would remove all container whether running or stopped.</p>
@@ -141,7 +141,7 @@
         </li>
       </ul>
       <ul class="nospace group btmspace-80 elements elements-four">
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="Remove_All_Img();">
            <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
              <h6 class="heading">Clean all Container Images</h6>
              <p>It would remove all container Images.</p>
