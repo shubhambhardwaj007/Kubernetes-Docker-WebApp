@@ -17,20 +17,39 @@
       <label><b>Container Image</b></label>
       <input type="text" placeholder="Enter Container Image Name.." name="container_image" required>  
       <button type="submit" class="btn">Proceed</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      <button type="button" class="btn cancel" onclick="Launch_Container_Close_Form()">Close</button>
     </form>
   </div>
   <div class="form-popup" id="stop_running_container">
-    <form class="form-container">
+    <form class="form-container" style="height: 280px">
       <h1  style="color: black;">Existing Container Details:</h1>  
       <label><b>Running Container Name</b></label>
       <input type="text" placeholder="Enter Running Container Name..." name="running_container_name" required>    
       <button type="submit" class="btn">Proceed</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      <button type="button" class="btn cancel" onclick="Stop_Container_Close_Form()">Close</button>
     </form>
   </div>
+  <div class="form-popup" id="remove_container">
+    <form class="form-container" style="height: 280px">
+      <h1  style="color: black;">Existing Container Details:</h1>  
+      <label><b>Running/Stopped Container Name</b></label>
+      <input type="text" placeholder="Enter Running/Stopped Container Name..." name="remove_container_name" required>    
+      <button type="submit" class="btn">Proceed</button>
+      <button type="button" class="btn cancel" onclick="Remove_Container_Close_Form()">Close</button>
+    </form>
+  </div>
+  <div class="form-popup" id="remove_image">
+    <form class="form-container" style="height: 280px">
+      <h1  style="color: black;">Container Image Details:</h1>  
+      <label><b>Container Image Name</b></label>
+      <input type="text" placeholder="Enter Container Image Name..." name="remove_container_image" required>    
+      <button type="submit" class="btn">Proceed</button>
+      <button type="button" class="btn cancel" onclick="Remove_Image_Close_Form()">Close</button>
+    </form>
+  </div>
+
   <div class="form-popup" id="run_command">
-    <form class="form-container">
+    <form class="form-container" style="height: 480px">
       <h1  style="color: black;">Container Details:</h1>  
       <label><b>Container Name</b></label>
       <input type="text" placeholder="Enter Container Name..." name="temp_container_name" required>  
@@ -39,9 +58,10 @@
       <label><b>Command</b></label>
       <input type="text" placeholder="Enter Command.." name="temp_container_command" required>
       <button type="submit" class="btn">Proceed</button>
-      <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+      <button type="button" class="btn cancel" onclick="Temp_Container_Close_Form()">Close</button>
     </form>
   </div>
+
 <div class="wrapper row1">
   <header id="header" class="hoc clear">
     <div id="logo" class="fl_left"> 
@@ -95,19 +115,19 @@
         </li>
       </ul>
       <ul class="nospace group btmspace-80 elements elements-four">
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="Stop_Container();">
           <article><a href="#"><i class="fas fa-linkedin"></i></a>
             <h6 class="heading">Stop Running Container</h6>
             <p>It would stop specified container that is currently in running state.</p>
           </article>
         </li>
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="Remove_Container()">
           <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
             <h6 class="heading">Remove Docker Containers</h6>
             <p>It would permanently remove particular docker containers.</p>
           </article>
         </li>
-        <li class="one_quarter">
+        <li class="one_quarter" onclick="Remove_Image();">
            <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
              <h6 class="heading">Remove Container Image</h6>
              <p>It would remove specified Container Image.</p>
@@ -127,7 +147,7 @@
              <p>It would remove all container Images.</p>
            </article>
         </li>
-        <li class="one_quarter" onclick="">
+        <li class="one_quarter" onclick="Temp_Container();">
            <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
             <h6 class="heading">Run Command on Container</h6>
             <p>It would run command in Isolated container Environment.</p>
