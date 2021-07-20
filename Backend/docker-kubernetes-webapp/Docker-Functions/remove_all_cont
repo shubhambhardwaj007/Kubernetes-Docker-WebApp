@@ -1,0 +1,14 @@
+#!/usr/bin/python3
+
+import subprocess
+import cgi
+
+print("content-type: text/plain")
+print()
+
+final_cmd="sudo docker container rm -f `sudo docker container ps -aq`"
+status,output = subprocess.getstatusoutput(final_cmd)
+if status == 0:
+  print("All Docker Containers are successfully removed")
+else:
+  print(output)

@@ -1,0 +1,9 @@
+#!/usr/bin/python3
+import subprocess
+import cgi
+print("content-type: text/plain")
+print()
+api_info = cgi.FieldStorage()
+final_cmd="sudo docker rmi -f `sudo docker image ls -aq`"
+output = subprocess(final_cmd)
+print(output)

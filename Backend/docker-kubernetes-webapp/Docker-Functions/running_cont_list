@@ -1,0 +1,11 @@
+#!/usr/bin/python3
+
+import subprocess
+import cgi
+
+print("content-type: text/plain")
+print()
+
+final_cmd="sudo docker container ls"
+output = subprocess.getoutput(final_cmd)
+print(output)

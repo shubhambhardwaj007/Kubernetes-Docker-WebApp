@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+import subprocess
+import cgi
+print("content-type: text/plain")
+print()
+api_info = cgi.FieldStorage()
+image_name = api_info.get_info("image_name")
+final_cmd="sudo docker container rmi -f {0}".format(image_name)
+output = subprocess(final_cmd)
+print(output)

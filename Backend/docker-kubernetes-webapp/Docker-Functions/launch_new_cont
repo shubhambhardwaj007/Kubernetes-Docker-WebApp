@@ -1,0 +1,18 @@
+#!/usr/bin/python3
+import subprocess
+import cgi
+
+print("content-type: text/plain")
+print()
+
+api=cgi.FieldStorage()
+
+container_name = api.getvalue("container_name")
+container_image = api.getvalue("container_image")
+
+final_cmd="sudo docker container run -dit --name {0} {1}".format(container_name,container_image)
+status,output = subprocess.getstatusoutput(final_cmd)
+if status == 0:
+  print("container named {0} is sucessfully launched".format(container_name))
+else:
+  print(output)

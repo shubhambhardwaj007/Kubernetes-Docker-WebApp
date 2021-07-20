@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+import subprocess
+import cgi
+print("content-type: text/plain")
+print()
+api_info = cgi.FieldStorage()
+container_name = api_info.getvalue("container_name")
+container_image = api_info.getvalue("container_image")
+command = api_info.getvalue("command")
+final_cmd="sudo docker container run -dit --name {0} {1} {2}".format(container_name,container_image,command)
+output = subprocess(final_cmd)
+print(output)
