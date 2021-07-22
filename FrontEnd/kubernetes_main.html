@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+<title>Docker Main Page</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
+<link rel="stylesheet" href="pop_dialog_box.css" />
+<script src="form.js"></script>
+</head>
+<body>
+  <div class="form-popup" id="launch_new_container">
+    <form class="form-container">
+      <h1  style="color: black;">New Container Details:</h1>  
+      <label><b>New Container Name</b></label>
+      <input type="text" placeholder="Enter Container Name..." name="new_container_name" required>  
+      <label><b>Container Image</b></label>
+      <input type="text" placeholder="Enter Container Image Name.." name="container_image" required>  
+      <button type="submit" class="btn" onclick="Launch_New_Cont();">Proceed</button>
+      <button type="button" class="btn cancel" onclick="Launch_Container_Close_Form()">Close</button>
+    </form>
+  </div>
+  <div class="form-popup" id="stop_running_container">
+    <form class="form-container" style="height: 280px">
+      <h1  style="color: black;">Existing Container Details:</h1>  
+      <label><b>Running Container Name</b></label>
+      <input type="text" placeholder="Enter Running Container Name..." name="running_container_name" required>    
+      <button type="submit" class="btn" onclick="Stop_Running_Cont()">Proceed</button>
+      <button type="button" class="btn cancel" onclick="Stop_Container_Close_Form()">Close</button>
+    </form>
+  </div>
+  <div class="form-popup" id="remove_container">
+    <form class="form-container" style="height: 280px">
+      <h1  style="color: black;">Existing Container Details:</h1>  
+      <label><b>Running/Stopped Container Name</b></label>
+      <input type="text" placeholder="Enter Running/Stopped Container Name..." name="remove_container_name" required>    
+      <button type="submit" class="btn" onclick="Remove_Cont();">Proceed</button>
+      <button type="button" class="btn cancel" onclick="Remove_Container_Close_Form()">Close</button>
+    </form>
+  </div>
+  <div class="form-popup" id="remove_image">
+    <form class="form-container" style="height: 280px">
+      <h1  style="color: black;">Container Image Details:</h1>  
+      <label><b>Container Image Name</b></label>
+      <input type="text" placeholder="Enter Container Image Name..." name="remove_container_image" required>    
+      <button type="submit" class="btn" onclick="Remove_Img();">Proceed</button>
+      <button type="button" class="btn cancel" onclick="Remove_Image_Close_Form()">Close</button>
+    </form>
+  </div>
+
+  <div class="form-popup" id="run_command">
+    <form class="form-container" style="height: 480px">
+      <h1  style="color: black;">Container Details:</h1>  
+      <label><b>Container Name</b></label>
+      <input type="text" placeholder="Enter Container Name..." name="temp_container_name" required>  
+      <label><b>Container Image</b></label>
+      <input type="text" placeholder="Enter Container Image Name.." name="temp_container_image" required>
+      <label><b>Command</b></label>
+      <input type="text" placeholder="Enter Command.." name="temp_container_command" required>
+      <button type="submit" class="btn" onclick="Exec_Command();">Proceed</button>
+      <button type="button" class="btn cancel" onclick="Temp_Container_Close_Form()">Close</button>
+    </form>
+  </div>
+
+<div class="wrapper row1">
+  <header id="header" class="hoc clear">
+    <div id="logo" class="fl_left"> 
+      <h1 class="logoname"><a href="index.html">Docker <span>C</span>ontainer</a></h1>
+    </div>
+    <nav id="mainav" class="fl_right"> 
+      <ul class="clear">
+        <li><a href="./index.html" title="">Home</a></li>
+        <li><a href="./docker_intro.html" title="">Docker</a></li>
+        <li><a href="./kubernetes_intro.html" title="">Kubernetes</a></li>
+        <li><a href="./about.html" title="">About me</a></li>
+        <li><a href="./contact.html" title="">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+</div>
+<div class="bgded overlay" style="background-image:url('images/demo/backgrounds/background.jpg');">
+  <div id="pageintro" class="hoc clear"> 
+    <article>
+      <h3 style="font-size: 28px;"class="heading" id="onscreen_output" >Docker Command Output will appear here...</h3>
+    </article>
+  </div>
+</div>
+<div class="wrapper row3">
+  <main class="hoc container clear"> 
+    <section id="introblocks">
+      <ul class="nospace group btmspace-80 elements elements-four">
+        <li class="one_quarter" onclick="Cont_Img_List();">
+          <article><a href="#"><i class="fas fa-table"></i></a>
+            <h6 class="heading">List Docker Images</h6>
+            <p>It would list all docker images that are present in your system.</p>
+          </article>
+        </li>
+        <li class="one_quarter" onclick="Launch_Container();">
+          <article><a href="#"><i class="fas fa-sliders-h"></i></a>
+            <h6 class="heading">Launch Docker container</h6>
+            <p>It would launch new container for you using specified Docker Image.</p>
+          </article>
+        </li>
+        <li class="one_quarter" onclick="Running_Cont_List();">
+          <article><a href="#"><i class="fas fa-heartbeat"></i></a>
+            <h6 class="heading">List Running Containers</h6>
+            <p>It would list all the containers running currently in your system.</p>
+          </article>
+        </li>
+        <li class="one_quarter" onclick="Stopped_Cont_List();">
+          <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
+            <h6 class="heading">List Stopped Containers</h6>
+            <p>It would list all container that are in stopped state.</p>
+          </article>
+        </li>
+      </ul>
+      <ul class="nospace group btmspace-80 elements elements-four">
+        <li class="one_quarter" onclick="Stop_Container();">
+          <article><a href="#"><i class="fas fa-linkedin"></i></a>
+            <h6 class="heading">Stop Running Container</h6>
+            <p>It would stop specified container that is currently in running state.</p>
+          </article>
+        </li>
+        <li class="one_quarter" onclick="Remove_Container()">
+          <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
+            <h6 class="heading">Remove Docker Containers</h6>
+            <p>It would permanently remove particular docker containers.</p>
+          </article>
+        </li>
+        <li class="one_quarter" onclick="Remove_Image();">
+           <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
+             <h6 class="heading">Remove Container Image</h6>
+             <p>It would remove specified Container Image.</p>
+           </article>
+        </li>
+        <li class="one_quarter" onclick="Remove_All_Cont();">
+           <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
+             <h6 class="heading">Clean all Docker Containers</h6>
+             <p>It would remove all container whether running or stopped.</p>
+           </article>
+        </li>
+      </ul>
+      <ul class="nospace group btmspace-80 elements elements-four">
+        <li class="one_quarter" onclick="Remove_All_Img();">
+           <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
+             <h6 class="heading">Clean all Container Images</h6>
+             <p>It would remove all container Images.</p>
+           </article>
+        </li>
+        <li class="one_quarter" onclick="Temp_Container();">
+           <article><a href="#"><i class="fas fa-hourglass-half"></i></a>
+            <h6 class="heading">Run Command on Container</h6>
+            <p>It would run command in Isolated container Environment.</p>
+            </article>
+        </li>
+      </ul>
+      </section>
+    </body>
+    
