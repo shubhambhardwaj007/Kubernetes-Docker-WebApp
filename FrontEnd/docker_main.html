@@ -6,17 +6,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <link href="layout/styles/layout.css" rel="stylesheet" type="text/css" media="all">
 <link rel="stylesheet" href="pop_dialog_box.css" />
-<script src="form.js"></script>
+<script src="docker_form.js"></script>
+<script src="docker_functions.js"></script>
 </head>
 <body>
   <div class="form-popup" id="launch_new_container">
-    <form class="form-container">
+    <form class="form-container" name="launch_test">
       <h1  style="color: black;">New Container Details:</h1>  
       <label><b>New Container Name</b></label>
       <input type="text" placeholder="Enter Container Name..." name="new_container_name" required>  
       <label><b>Container Image</b></label>
-      <input type="text" placeholder="Enter Container Image Name.." name="container_image" required>  
-      <button type="submit" class="btn" onclick="Launch_New_Cont();">Proceed</button>
+      <input type="text" placeholder="Enter Container Image Name.." name="new_container_image" required>  
+      <button  type="submit" class="btn" onclick="Launch_New_Cont()">Proceed</button>
       <button type="button" class="btn cancel" onclick="Launch_Container_Close_Form()">Close</button>
     </form>
   </div>
@@ -81,7 +82,9 @@
 <div class="bgded overlay" style="background-image:url('images/demo/backgrounds/background.jpg');">
   <div id="pageintro" class="hoc clear"> 
     <article>
-      <h3 style="font-size: 28px;"class="heading" id="onscreen_output" >Docker Command Output will appear here...</h3>
+      <pre>
+      <h3 style="font-size: 20px;"id="onscreen_output" >Docker Command Output will appear here...</h3>
+    </pre>
     </article>
   </div>
 </div>
@@ -89,7 +92,7 @@
   <main class="hoc container clear"> 
     <section id="introblocks">
       <ul class="nospace group btmspace-80 elements elements-four">
-        <li class="one_quarter" onclick="Cont_Img_List();">
+        <li class="one_quarter" onclick="Cont_Img_List()">
           <article><a href="#"><i class="fas fa-table"></i></a>
             <h6 class="heading">List Docker Images</h6>
             <p>It would list all docker images that are present in your system.</p>
@@ -101,7 +104,7 @@
             <p>It would launch new container for you using specified Docker Image.</p>
           </article>
         </li>
-        <li class="one_quarter" onclick="Running_Cont_List();">
+        <li class="one_quarter" onclick="Running_Cont_List()">
           <article><a href="#"><i class="fas fa-heartbeat"></i></a>
             <h6 class="heading">List Running Containers</h6>
             <p>It would list all the containers running currently in your system.</p>

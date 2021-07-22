@@ -13,9 +13,9 @@ function Cont_Img_List()
 function Launch_New_Cont()
 {
     var filename = "launch_new_cont";
-    container_name = document.getElementsByName("new_container_name")[0].value;
-    container_image = document.getElementsByName("container_image")[0].value;
-    var url = "http://" + HOST_IP + "/" + filepath + filename + "?" + "container_name=" + container_name + "&" + "container_image=" + container_image  ;
+    var container_name = document.getElementsByName("new_container_name")[0].value;
+    var container_image = document.getElementsByName("new_container_image")[0].value;
+    var url = "http://" + HOST_IP + "/" + filepath + filename + "?" + "container_name=" + container_name + "&" + "container_image=" + container_image;
     var xhr = new XMLHttpRequest();
     xhr.open("GET",url,false);
     xhr.send();
