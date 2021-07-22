@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+import subprocess
+import cgi
+print("content-type: text/plain")
+print()
+api_info = cgi.FieldStorage()
+pod_name = api_info.get_info("pod_name")
+final_cmd="kubectl delete pods {0}".format(pod_name)
+output = subprocess(final_cmd)
+print(output)

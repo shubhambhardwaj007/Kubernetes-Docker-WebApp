@@ -1,0 +1,19 @@
+#!/usr/bin/python3
+import subprocess
+import cgi
+
+print("content-type: text/plain")
+print()
+
+api=cgi.FieldStorage()
+
+pod_name = api.getvalue("pod_name")
+pod_image = api.getvalue("pod_image")
+pod_namespace = api.getvalue("pod_namespace")
+
+final_cmd="kubectl run {0} -n {2} --image={1} --kubeconfig config".format(pod_name,pod_image,pod_namespace)
+status,output = subprocess.getstatusoutput(final_cmd)
+if status == 0:
+  print("pod: named {0} is sucessfully launched in {1} namespace".format(pod_name,pod_namespace))
+else:
+  print(output)

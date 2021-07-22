@@ -1,0 +1,12 @@
+#!/usr/bin/python3
+import subprocess
+import cgi
+print("content-type: text/plain")
+print()
+
+api = cgi.FieldStorage()
+namaspace_name = form.getvalue("namespace_name")
+final_cmd = "kubectl get pods -n {0} --kubeconfig config".format(namespace)
+
+status,output = subprocess.getstatusoutput(cmd)
+print(output)
