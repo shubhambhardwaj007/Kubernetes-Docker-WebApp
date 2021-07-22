@@ -9,6 +9,10 @@ Follow the below steps to configure the same setup on your system:
 3. Put <b>docker-kubernetes-webapp</b> Folder (present inside Backend folder in this repo) inside <b>/var/www/cgi-bin/</b> folder.<br />
 `cd Kubernetes-Docker-WebApp`<br />
 `cp -r ./Backend/ /var/www/cgi-bin/`<br />
-4. Put <b>FrontEnd</b> Folder inside <b>/var/www/html</b> to be able to access it from web browser.
-5. Finally, Start Httpd webserver service and make its service permanent using following command:<br / >
+4. Put <b>FrontEnd</b> Folder inside <b>/var/www/html</b> so that it can be accessed it from web browser.<br />
+`cp -r ./Frontend /var/www/html/`
+5. Finally, Start Httpd webserver service and make its service permanent using following command:<br />
 `systemctl enable httpd --now`
+6. Now you can easily access this webApp over web browser by using following url:<br />
+`http://<IP ADDRESS OF YOUR SYSTEM>/FrontEnd/index.html`
+7. Enjoy!!!
